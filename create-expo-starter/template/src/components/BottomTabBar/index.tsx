@@ -27,7 +27,6 @@ type TabIcon = { Active: React.FC<SvgProps>; Inactive: React.FC<SvgProps> };
 interface TabRoute {
   key: string;
   name: string;
-  params?: object;
 }
 
 export interface BottomTabBarProps {
@@ -36,14 +35,14 @@ export interface BottomTabBarProps {
     string,
     { options: { title?: string; tabBarAccessibilityLabel?: string } }
   >;
-  navigation: {
+  emitter: {
     emit(event: {
       type: "tabPress";
       target: string;
       canPreventDefault: true;
     }): { defaultPrevented: boolean };
-    navigate(name: string, params?: object): void;
   };
+  navigateToTab(routeKey: string): void;
 }
 
 /**
@@ -69,7 +68,8 @@ const FALLBACK_ICON: TabIcon = {
 const BottomTabBar: React.FC<BottomTabBarProps> = ({
   state,
   descriptors,
-  navigation,
+  emitter,
+  navigateToTab,
 }) => {
   const insets = useSafeAreaInsets();
   const styles = useStyles();
@@ -91,13 +91,13 @@ const BottomTabBar: React.FC<BottomTabBarProps> = ({
             options.tabBarAccessibilityLabel ?? options.title ?? route.name;
 
           const onPress = () => {
-            const event = navigation.emit({
+            const event = emitter.emit({
               type: "tabPress",
               target: route.key,
               canPreventDefault: true,
             });
             if (!isFocused && !event.defaultPrevented) {
-              navigation.navigate(route.name, route.params);
+              navigateToTab(route.key);
             }
           };
 

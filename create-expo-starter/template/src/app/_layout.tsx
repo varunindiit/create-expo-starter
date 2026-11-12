@@ -76,11 +76,13 @@ const RootNavigator = () => {
         animation: "slide_from_right",
       }}
     >
-      <Stack.Protected guard={isLoggedIn}>
+      {/* expo-router 58 no longer infers a target from the first remaining
+          group, so each guard names where to send the user. */}
+      <Stack.Protected guard={isLoggedIn} redirectTo="/login">
         <Stack.Screen name="(tabs)" />
       </Stack.Protected>
 
-      <Stack.Protected guard={!isLoggedIn}>
+      <Stack.Protected guard={!isLoggedIn} redirectTo="/">
         <Stack.Screen name="(auth)" />
       </Stack.Protected>
 

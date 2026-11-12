@@ -1,5 +1,5 @@
 import { Platform } from "react-native";
-import { createMMKV } from "react-native-mmkv";
+import { createMMKV, type MMKV } from "react-native-mmkv";
 import * as SecureStore from "expo-secure-store";
 
 /**
@@ -14,7 +14,14 @@ import * as SecureStore from "expo-secure-store";
  * Both expose a synchronous API so callers (notably the axios request
  * interceptor) don't have to become async.
  */
-export const storage = createMMKV();
+// Static web rendering (`web.output: "static"`) evaluates modules in Node, where
+// MMKV's localStorage backend throws. There, every call is a no-op returning
+// `undefined`, so module-level reads fall back to their defaults.
+const isStaticRender = Platform.OS === "web" && typeof window === "undefined";
+
+export const storage: MMKV = isStaticRender
+  ? new Proxy({} as MMKV, { get: () => () => undefined })
+  : createMMKV();
 
 // ── general-purpose (unencrypted) ───────────────────────────────────────────
 

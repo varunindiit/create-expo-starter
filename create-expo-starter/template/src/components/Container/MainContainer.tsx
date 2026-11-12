@@ -48,8 +48,6 @@ const MainContainer: React.FC<MainContainerProps> = memo(
     >
       <StatusBar
         barStyle={statusBarStyle ?? (isDark ? "light-content" : "dark-content")}
-        backgroundColor="transparent"
-        translucent
       />
       {gradient ? (
         <LinearGradient
