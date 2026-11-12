@@ -193,7 +193,7 @@ async function main() {
 
   log("");
   log(`${c.magenta(c.bold("◆ create-expo-starter"))}`);
-  log(c.dim("  Expo SDK 56 · expo-router · Redux Toolkit · TypeScript\n"));
+  log(c.dim("  Expo SDK 58 · expo-router · Redux Toolkit · TypeScript\n"));
 
   if (!fs.existsSync(TEMPLATE_DIR)) {
     err("Bundled template/ directory is missing — the package is corrupt.");

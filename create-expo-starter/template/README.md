@@ -1,6 +1,6 @@
 # __APP_DISPLAY_NAME__
 
-An [Expo](https://expo.dev) (SDK 56) app scaffolded with
+An [Expo](https://expo.dev) (SDK 58) app scaffolded with
 [`create-expo-starter`](https://www.npmjs.com/package/@varunindiit/create-expo-starter).
 
 ## Get started
@@ -130,7 +130,7 @@ Moves the starter code to `example/` (or deletes it) and leaves a minimal
 
 ## Learn more
 
-- [Expo SDK 56 docs](https://docs.expo.dev/versions/v56.0.0/)
+- [Expo SDK 58 docs](https://docs.expo.dev/versions/v58.0.0/)
 - [expo-router file-based routing](https://docs.expo.dev/router/introduction/)
 - [Redux Toolkit / RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 - [EAS Build](https://docs.expo.dev/build/introduction/)

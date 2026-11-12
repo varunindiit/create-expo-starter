@@ -1,5 +1,11 @@
 import { useCallback, useMemo, useSyncExternalStore } from "react";
-import { StyleSheet, useColorScheme } from "react-native";
+import {
+  StyleSheet,
+  useColorScheme,
+  type ImageStyle,
+  type TextStyle,
+  type ViewStyle,
+} from "react-native";
 import { storage } from "@/services/storage";
 import { THEME_PREFERENCE_KEY } from "@/utils/constants";
 import { PALETTES, type ColorSchemeName, type ThemeColors } from "./palette";
@@ -96,8 +102,12 @@ export const useThemeColors = (): ThemeColors => useTheme().colors;
  * The sheet is memoised per colour scheme, so switching themes rebuilds it
  * once rather than on every render.
  */
+// RN 0.87's strict TypeScript API dropped `StyleSheet.NamedStyles`; this is the
+// same shape, and it keeps style literals (e.g. `flexDirection: "row"`) narrow.
+type NamedStyles<T> = { [P in keyof T]: ViewStyle | TextStyle | ImageStyle };
+
 export const makeStyles =
-  <T extends StyleSheet.NamedStyles<T>>(factory: (colors: ThemeColors) => T) =>
+  <T extends NamedStyles<T>>(factory: (colors: ThemeColors) => T) =>
   (): T => {
     const colors = useThemeColors();
     return useMemo(() => StyleSheet.create(factory(colors)), [colors]);

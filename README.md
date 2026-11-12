@@ -5,7 +5,7 @@
 
 This repository contains two things:
 
-1. **The dev app** (repo root) — a runnable Expo SDK 56 app where all template
+1. **The dev app** (repo root) — a runnable Expo SDK 58 app where all template
    code lives and is developed, type-checked, linted and tested.
 2. **The published CLI** — [`create-expo-starter/`](create-expo-starter/), the
    npm package (`@varunindiit/create-expo-starter`) that scaffolds new projects
@@ -90,7 +90,7 @@ cd /tmp/probe && npm install && npm run verify
 The [publish workflow](.github/workflows/publish.yml) verifies the tag, template
 sync, LICENSE presence and test suite before publishing with npm provenance.
 
-> Built for Expo SDK 56 — review https://docs.expo.dev/versions/v56.0.0/ before
+> Built for Expo SDK 58 — review https://docs.expo.dev/versions/v58.0.0/ before
 > changing app code or upgrading dependencies.
 
 ## License

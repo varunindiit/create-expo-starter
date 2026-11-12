@@ -1,5 +1,5 @@
 // Dynamic Expo config — extends app.json and injects environment values.
-// https://docs.expo.dev/versions/v56.0.0/config/app/
+// https://docs.expo.dev/versions/v58.0.0/config/app/
 //
 // Static identity (name, slug, scheme, icons, plugins) lives in app.json and is
 // passed in here as `config`. Anything environment-driven is layered on top.

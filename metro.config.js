@@ -1,5 +1,5 @@
 // Metro configuration for Expo + SVG support (react-native-svg-transformer)
-// https://docs.expo.dev/versions/v56.0.0/
+// https://docs.expo.dev/versions/v58.0.0/
 const { getDefaultConfig } = require("expo/metro-config");
 
 const config = getDefaultConfig(__dirname);

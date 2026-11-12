@@ -1,6 +1,6 @@
 # create-expo-starter
 
-A zero-dependency CLI that scaffolds a **production-ready Expo (SDK 56) app**.
+A zero-dependency CLI that scaffolds a **production-ready Expo (SDK 58) app**.
 Pick a name, pick a feature set, and you get a renamed project that installs,
 type-checks, lints and passes its tests immediately.
 
@@ -130,8 +130,8 @@ values resolve.
 
 Node **>= 20.19.0**. The CLI itself has zero runtime dependencies.
 
-> Built for Expo SDK 56. Review the versioned docs at
-> https://docs.expo.dev/versions/v56.0.0/ before upgrading.
+> Built for Expo SDK 58. Review the versioned docs at
+> https://docs.expo.dev/versions/v58.0.0/ before upgrading.
 
 ## License
 
