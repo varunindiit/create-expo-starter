@@ -1,6 +1,6 @@
 {
   "name": "@varunindiit/create-expo-starter",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Production-ready Expo (SDK 58) starter: expo-router auth flow with session persistence, bottom tabs, Redux Toolkit + RTK Query, light/dark theming, i18n, SecureStore, typed API layer with token refresh, and a tested component library. Scaffolds a fully renamed, feature-selectable project in seconds.",
   "keywords": [
     "expo",

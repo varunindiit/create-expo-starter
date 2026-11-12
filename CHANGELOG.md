@@ -5,6 +5,34 @@ All notable changes to `@varunindiit/create-expo-starter` are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0]
+
+Upgrades the scaffolded app to **Expo SDK 58** (React Native 0.88.1, React
+19.3.0). Major bump because generated projects need a newer toolchain (Node
+≥ 22.13, a current Xcode) and pick up expo-router 58's API changes.
+
+### Changed
+
+- Expo SDK 56 → 58 (via 57): expo-router 58, Reanimated 4.7 / Worklets 0.13,
+  Gesture Handler 3, Screens 4.30, Safe Area 5.11, jest-expo 58 / Jest 30.
+- Removed `newArchEnabled` from `app.json` (rejected by the SDK 58 schema; the
+  New Architecture is the only one).
+
+### Fixed
+
+- Custom tab bar uses expo-router 58's `navigateToTab` API; the auth stack uses
+  `unstable_settings.anchor` instead of the removed `initialRouteName`.
+- Protected route groups declare `redirectTo`, so signed-out users land on
+  `/login` instead of "This screen doesn't exist".
+- Tab scenes get an opaque background, so inactive tabs no longer show through
+  on web.
+- RN 0.87 strict TypeScript API: `OtpInput` uses `TextInputInstance` /
+  `TextInputKeyPressEvent`, `useTheme` no longer relies on the removed
+  `StyleSheet.NamedStyles`, and the removed `StatusBar` `backgroundColor` /
+  `translucent` props are gone.
+- Static web export works: MMKV is stubbed during server rendering and a
+  localization import cycle is broken.
+
 ## [2.0.0]
 
 A full audit pass across delivery, security, correctness and developer
